@@ -36,7 +36,6 @@ contract Bridge721 is ERC721 {
     function lockToken(uint256 tokenId) public payable {
         //şimdilik işlem ücreti olmasın
         //require(msg.value >= zeroPointOneAvax, "Ether value is below the lock price");
-
         transferFrom(msg.sender, contratAddress, tokenId);
         originalOwner[tokenId] = msg.sender;
         _approve(msg.sender, tokenId);//lock larken approve yetkisini kişiye vermek lazım yoksa daha sonrasında yapılamıyor.
